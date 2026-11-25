@@ -1,0 +1,6 @@
+apiVersion: v2
+name: financial-advisor
+description: Security-hardened ADK financial-advisor chart for GKE Autopilot via Application Design Center Native Helm
+type: application
+version: 0.1.0
+appVersion: "latest"

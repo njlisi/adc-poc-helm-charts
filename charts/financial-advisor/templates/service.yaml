@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: financial-advisor
+  labels:
+    app.kubernetes.io/name: financial-advisor
+spec:
+  type: {{ .Values.service.type }}
+  selector:
+    app.kubernetes.io/name: financial-advisor
+  ports:
+    - name: http
+      port: {{ .Values.service.port }}
+      targetPort: http

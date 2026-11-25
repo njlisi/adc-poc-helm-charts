@@ -1,0 +1,24 @@
+replicaCount: 1
+image:
+  repository: us-west1-docker.pkg.dev/adk-samples-repo-gcp-support/adk-recipes-registry/python/financial-advisor
+  tag: latest
+  pullPolicy: IfNotPresent
+serviceAccount:
+  name: financial-advisor-ksa
+  gcpServiceAccount: financial-advisor-gke-sa@njlisi-test-2.iam.gserviceaccount.com
+service:
+  type: ClusterIP
+  port: 8080
+env:
+  GOOGLE_CLOUD_PROJECT: njlisi-test-2
+  GOOGLE_CLOUD_LOCATION: global
+  GOOGLE_GENAI_USE_VERTEXAI: "TRUE"
+  UV_OFFLINE: "1"
+  UV_NO_SYNC: "1"
+resources:
+  requests:
+    cpu: 500m
+    memory: 1Gi
+  limits:
+    cpu: "1"
+    memory: 2Gi
